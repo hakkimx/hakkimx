@@ -1,0 +1,58 @@
+- 👋 Hi, I’m @hakkimx
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+<!---
+hakkimx/hakkimx is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+name: hakkim
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs every minute
+    - cron: "* * * * *"
+
+jobs:
+  update-readme:
+    name: Update todoist stats
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses:hakkim/todoist-readme@master
+        with:
+          TODOIST_API_KEY: ${{ secrets.TODOIST_API_KEY }}
+          PREMIUM: ""
+{
+  "name": "todoist-readme",
+  "version": "0.0.7",
+  "description": "🚧 Updates README with your Todoist stats",
+  "main": "index.js",
+  "dependencies": {
+    "@actions/core": "^1.2.5",
+    "axios": "^0.20.0",
+    "child_process": "^1.0.2",
+    "humanize-plus": "^1.8.2",
+    "process": "^0.11.10"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build index.js -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhisheknaiidu/todoist-readme.git"
+  },
+  "author": "Abhishek Naidu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhisheknaiidu/todoist-readme/issues"
+  },
+  "homepage": "https://github.com/abhisheknaiidu/todoist-readme#readme"
+}
